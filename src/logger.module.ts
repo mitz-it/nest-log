@@ -1,9 +1,13 @@
-import { Module } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 import { Logger } from './logger.service';
 
-@Module({
-  imports: [],
-  controllers: [],
-  providers: [Logger],
-})
-export class LoggerModule {}
+@Module({})
+export class LoggerModule {
+  static register(): DynamicModule {
+    return {
+      module: LoggerModule,
+      providers: [Logger],
+      exports: [Logger],
+    };
+  }
+}
