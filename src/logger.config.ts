@@ -1,7 +1,7 @@
 import * as winston from 'winston';
 
 export class LoggerConfig {
-  static initialized: boolean = false;
+  static initialized = false;
 
   static init() {
     if (LoggerConfig.initialized) {
