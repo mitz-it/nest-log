@@ -1,24 +1,34 @@
 import { Injectable, LoggerService } from '@nestjs/common';
+import { LoggerConfig } from './logger.config';
+import * as winston from 'winston';
 
 @Injectable()
 export class Logger implements LoggerService {
+  constructor() {
+    LoggerConfig.init();
+  }
+
   log(message: string) {
-    console.log(JSON.stringify({ level: 'info', message }));
+    winston.log('info', message);
   }
 
   error(message: string) {
-    console.error(JSON.stringify({ level: 'error', message }));
+    winston.log('error', message);
   }
 
   warn(message: string) {
-    console.warn(JSON.stringify({ level: 'warn', message }));
+    winston.log('warn', message);
   }
 
   debug(message: string) {
-    console.debug(JSON.stringify({ level: 'debug', message }));
+    winston.log('debug', message);
   }
 
   verbose(message: string) {
-    console.log(JSON.stringify({ level: 'verbose', message }));
+    winston.log('verbose', message);
+  }
+
+  fatal(message: string) {
+    winston.log('fatal', message);
   }
 }
