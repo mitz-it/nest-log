@@ -1,6 +1,6 @@
 {
   "name": "@mitz-it/nest-log",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Custom log for NestJS",
   "author": "Mitz IT",
   "repository": {
