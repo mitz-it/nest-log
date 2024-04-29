@@ -16,7 +16,6 @@ export class LoggerConfig {
       format: winston.format.combine(
         winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
         winston.format.json(),
-        winston.format.colorize({ all: true }),
       ),
       transports: new winston.transports.Console(),
     });
